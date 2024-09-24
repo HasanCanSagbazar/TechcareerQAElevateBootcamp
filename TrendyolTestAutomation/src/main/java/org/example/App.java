@@ -6,12 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws InterruptedException {
         WebDriver chromeDriver = new ChromeDriver();
         chromeDriver.get("https://www.trendyol.com/giris");
-        chromeDriver.findElement(By.id("login-email")).sendKeys("canhasan870@gmail.com");
-        chromeDriver.findElement(By.name("login-password")).sendKeys("Ia9b5C3!D2F");
+        chromeDriver.manage().window().maximize();
+        chromeDriver.findElement(By.id("login-email")).sendKeys("<email>");
+        chromeDriver.findElement(By.name("login-password")).sendKeys("<password>");
         chromeDriver.findElement(By.cssSelector("button[type='submit']")).click();
+        Thread.sleep(1000);
+        String value = chromeDriver.findElement(By.cssSelector("[class='link account-user'] p")).getText();
+
+        System.out.println(value);
+
+        Thread.sleep(1000);
+        chromeDriver.quit();
     }
 }
