@@ -3,13 +3,15 @@ package org.example;
 import Base.BaseTest;
 import Pages.LoginPage;
 import Pages.MainPage;
+import io.qameta.allure.Feature;
 import org.testng.annotations.*;
 
+@Feature("Login Test Scenarios")
 public class LoginTests extends BaseTest {
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
 
-    @Test
+    @Test(description = "Successfully User Login")
     public void LoginSuccessful() throws InterruptedException {
         loginPage.fillMail(email)
                 .fillPassword(password)
@@ -20,7 +22,7 @@ public class LoginTests extends BaseTest {
         AssetEquals("Hesabım", accountValue);
     }
 
-    @Test
+    @Test(description = "Unsuccessfully User Login")
     public void LoginUnsuccessfulPassword() throws InterruptedException {
         loginPage.fillMail(email)
                 .fillPassword(wrongPassword)
@@ -31,7 +33,7 @@ public class LoginTests extends BaseTest {
         AssetEquals("E-posta adresiniz ve/veya şifreniz hatalı.", value);
     }
 
-    @Test
+    @Test(description = "Empty Email Field Control")
     public void RequiredEmailControl() throws InterruptedException {
         loginPage.fillPassword(password)
                 .clickLogin()
@@ -41,7 +43,7 @@ public class LoginTests extends BaseTest {
         AssetEquals("Lütfen geçerli bir e-posta adresi giriniz.", value);
     }
 
-    @Test
+    @Test(description = "Empty Password Field Control")
     public void RequiredPasswordControl() throws InterruptedException {
         loginPage.fillMail(email)
                 .clickLogin()
@@ -51,7 +53,7 @@ public class LoginTests extends BaseTest {
         AssetEquals("Lütfen şifrenizi giriniz.", value);
     }
 
-    @Test
+    @Test(description = "Min Max Character Control")
     public void MinMaxCharacterControl() throws InterruptedException {
         String value;
         loginPage.fillMail("a")
