@@ -15,11 +15,20 @@
   </properties>
 
   <dependencies>
+ w
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.5.0</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 </project>

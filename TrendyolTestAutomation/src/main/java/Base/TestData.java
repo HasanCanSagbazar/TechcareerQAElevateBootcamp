@@ -22,7 +22,7 @@ public class TestData {
 
         email = prop.getProperty("EMAIL");
         password = prop.getProperty("PASSWORD");
-        wrongPassword = prop.getProperty("WRONGPASSWORD");
+        wrongPassword = prop.getProperty("WRONG_PASSWORD");
         loginUrl = "https://www.trendyol.com/giris";
     }
 }
